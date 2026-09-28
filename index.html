@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Warriors – Mobile Games</title>
+<meta name="description" content="Pixel Warriors makes fun, action-packed mobile games for Android. Play Swarm Survivor and more.">
+<meta property="og:title" content="Pixel Warriors">
+<meta property="og:description" content="Fun, action-packed mobile games for Android.">
+<meta property="og:image" content="img/banner.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0a1f;
+    --bg2: #171235;
+    --card: #1f1846;
+    --line: #3a2f73;
+    --text: #f4f3ff;
+    --muted: #b7b3d9;
+    --gold: #ffd54a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Nunito", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--gold); }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3, .brand { font-family: "Lilita One", "Nunito", sans-serif; font-weight: 400; letter-spacing: .5px; }
+
+  .top { border-bottom: 1px solid var(--line); background: rgba(13,10,31,.85); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 24px; color: var(--text); text-decoration: none; }
+  .brand img { width: 40px; height: 40px; image-rendering: pixelated; }
+  .nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 700; }
+  .nav a:hover { color: var(--text); }
+
+  /* Intro */
+  .intro {
+    padding: 80px 0 64px; text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(90,60,200,.45), transparent 60%),
+      repeating-linear-gradient(0deg, transparent 0 23px, rgba(255,255,255,.025) 23px 24px),
+      repeating-linear-gradient(90deg, transparent 0 23px, rgba(255,255,255,.025) 23px 24px);
+  }
+  .intro .logo { width: 112px; height: 112px; margin: 0 auto 18px; image-rendering: pixelated; filter: drop-shadow(0 8px 24px rgba(120,90,255,.45)); }
+  .intro h1 { font-size: clamp(44px, 9vw, 80px); line-height: 1; margin: 0 0 12px; }
+  .intro h1 span { color: var(--gold); }
+  .intro p { color: var(--muted); font-size: 20px; margin: 0 auto; max-width: 46ch; }
+
+  section { padding: 56px 0 0; }
+  section h2 { font-size: clamp(30px, 5vw, 42px); margin: 0 0 24px; text-align: center; }
+
+  /* Game cards */
+  .games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .game {
+    display: flex; flex-direction: column;
+    background: var(--card); border: 2px solid var(--line); border-radius: 24px; overflow: hidden;
+    color: var(--text); text-decoration: none;
+    transition: transform .15s, border-color .15s;
+  }
+  a.game:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .game .art { aspect-ratio: 1024 / 500; background: var(--bg2) center / cover no-repeat; }
+  .game .body { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px 22px; }
+  .game .icon { width: 72px; height: 72px; border-radius: 18px; border: 3px solid #000; flex: 0 0 auto; }
+  .game h3 { margin: 0; font-size: 28px; line-height: 1.1; }
+  .game p { margin: 4px 0 10px; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: var(--bg2); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 800; color: var(--muted); }
+  .tag.live { color: #1b1300; background: var(--gold); border-color: var(--gold); }
+  .game.soon .art {
+    display: grid; place-items: center;
+    background: repeating-linear-gradient(45deg, #1a1440 0 16px, #1f1846 16px 32px);
+    font-family: "Lilita One", sans-serif; font-size: 34px; color: #6d62a8;
+  }
+  .game.soon .icon { display: grid; place-items: center; background: var(--bg2); border-color: var(--line); font-size: 32px; }
+
+  /* About */
+  .about { background: linear-gradient(135deg, #2b1c6e, #4a1d5e); border: 2px solid var(--line); border-radius: 28px; padding: 36px 28px; text-align: center; }
+  .about p { color: var(--muted); margin: 0 auto 12px; max-width: 60ch; }
+
+  footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .games { grid-template-columns: 1fr; }
+    .nav { display: none; }
+    .intro { padding: 56px 0 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/logo.svg" alt="">Pixel Warriors</a>
+    <nav class="nav">
+      <a href="#games">Games</a>
+      <a href="#about">About</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <div class="wrap">
+      <img class="logo" src="img/logo.svg" alt="Pixel Warriors logo">
+      <h1>Pixel <span>Warriors</span></h1>
+      <p>We make fun, action-packed mobile games you can play anywhere, with one thumb.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="games">
+      <h2>Our games</h2>
+      <div class="games">
+        <!-- To add a game: copy this card, point it to the game's folder, and add its images to img/. -->
+        <a class="game" href="swarm-survivor/">
+          <div class="art" style="background-image: url('img/banner.jpg')"></div>
+          <div class="body">
+            <img class="icon" src="img/icon.png" alt="Swarm Survivor icon">
+            <div>
+              <h3>Swarm Survivor</h3>
+              <p>Survive monster hordes with one thumb. 20 levels, 5 heroes, daily challenges and epic bosses.</p>
+              <div class="tags"><span class="tag live">Android</span><span class="tag">Action</span><span class="tag">Free</span></div>
+            </div>
+          </div>
+        </a>
+        <div class="game soon">
+          <div class="art">Coming soon</div>
+          <div class="body">
+            <div class="icon">🎮</div>
+            <div>
+              <h3>Next adventure</h3>
+              <p>Our next game is in the works. Check back soon!</p>
+              <div class="tags"><span class="tag">In development</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <h2>About us</h2>
+        <p>Pixel Warriors is an independent game studio from India run by Mithilesh Dubey. Our games are free to play, work offline and are made for quick, fun sessions.</p>
+        <p>Questions or feedback? Email <a href="mailto:mille9984@gmail.com">mille9984@gmail.com</a>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Pixel Warriors · Mithilesh Dubey</div>
+    <div>
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="mailto:mille9984@gmail.com">mille9984@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
