@@ -116,6 +116,12 @@
   .shots::-webkit-scrollbar { height: 8px; }
   .shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
 
+
+  /* Gameplay video */
+  .video { display: flex; justify-content: center; }
+  .video video { width: min(340px, 86vw); aspect-ratio: 9 / 16; border-radius: 28px; border: 6px solid #05040c;
+    box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 2px var(--line); background: #000; }
+
   /* Download CTA */
   .cta { margin-top: 72px; background: linear-gradient(135deg, #1c3c9c, #d8541a); border: 2px solid var(--line); border-radius: 28px; padding: 40px 24px; text-align: center; }
   .cta h2 { margin-bottom: 8px; }
@@ -163,6 +169,7 @@
     <nav class="nav">
       <a href="#features">Features</a>
       <a href="#runners">Runners</a>
+      <a href="#video">Video</a>
       <a href="#screenshots">Screenshots</a>
       <a href="../">All games</a>
     </nav>
@@ -221,6 +228,14 @@
         <div class="rcard"><img src="../img/metro-sprint/runner-meera.png" alt="Meera"><h3>Meera</h3><p>Adventurer</p></div>
         <div class="rcard"><img src="../img/metro-sprint/runner-zoya.png" alt="Zoya"><h3>Zoya</h3><p>Punk style</p></div>
         <div class="rcard"><img src="../img/metro-sprint/runner-nova.png" alt="Nova"><h3>Nova</h3><p>From the future</p></div>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2>Watch the gameplay</h2>
+      <p class="lead">20 seconds of real gameplay, straight from the game.</p>
+      <div class="video">
+        <video src="../video/metro-sprint.mp4" poster="../img/metro-sprint/shot-1-run.jpg" controls playsinline muted loop preload="none"></video>
       </div>
     </section>
 

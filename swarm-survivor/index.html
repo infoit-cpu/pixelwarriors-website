@@ -113,6 +113,12 @@
   .shots::-webkit-scrollbar { height: 8px; }
   .shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
 
+
+  /* Gameplay video */
+  .video { display: flex; justify-content: center; }
+  .video video { width: min(340px, 86vw); aspect-ratio: 9 / 16; border-radius: 28px; border: 6px solid #05040c;
+    box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 2px var(--line); background: #000; }
+
   /* Download CTA */
   .cta { margin-top: 72px; background: linear-gradient(135deg, #2b1c6e, #4a1d5e); border: 2px solid var(--line); border-radius: 28px; padding: 40px 24px; text-align: center; }
   .cta h2 { margin-bottom: 8px; }
@@ -159,6 +165,7 @@
     <nav class="nav">
       <a href="#features">Features</a>
       <a href="#heroes">Heroes</a>
+      <a href="#video">Video</a>
       <a href="#screenshots">Screenshots</a>
       <a href="../">All games</a>
     </nav>
@@ -215,6 +222,14 @@
         <div class="hcard"><img src="../img/hero-barbarian.png" alt="Brakka the Barbarian"><h3>Brakka</h3><p>Barbarian · Earthquake</p></div>
         <div class="hcard"><img src="../img/hero-rogue.png" alt="Vex the Rogue"><h3>Vex</h3><p>Rogue · Blade Fan</p></div>
         <div class="hcard"><img src="../img/hero-ninja.png" alt="Kaze the Shadow"><h3>Kaze</h3><p>Shadow · Shuriken Storm</p></div>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2>Watch the gameplay</h2>
+      <p class="lead">20 seconds of real gameplay, straight from the game.</p>
+      <div class="video">
+        <video src="../video/swarm-survivor.mp4" poster="../img/shot-1-forest.jpg" controls playsinline muted loop preload="none"></video>
       </div>
     </section>
 
