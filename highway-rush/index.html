@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Highway Rush – Endless Traffic Racing Game for Android | Pixel Warriors</title>
+<meta name="description" content="Highway Rush by Pixel Warriors: weave through traffic, pull off near misses, hit the nitro and unlock 11 cars. Free endless racing game for Android.">
+<meta property="og:title" content="Highway Rush">
+<meta property="og:description" content="Weave through traffic, near-miss for points and hit the nitro in this free endless racer.">
+<meta property="og:image" content="../img/highway-rush/banner.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="../img/highway-rush/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a1430;
+    --bg2: #0f1d45;
+    --card: #15285c;
+    --line: #2b4a9c;
+    --text: #f3f7ff;
+    --muted: #b3c3ea;
+    --gold: #ffc233;
+    --orange: #ff7a1a;
+    --green: #5fd13a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Nunito", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--gold); }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3, .brand { font-family: "Lilita One", "Nunito", sans-serif; font-weight: 400; letter-spacing: .5px; }
+
+  /* Top bar */
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(10,20,48,.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 24px; color: var(--text); text-decoration: none; }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; }
+  .nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 700; }
+  .nav a:hover { color: var(--text); }
+  .back { display: none; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 15px; }
+  .back:hover { color: var(--text); }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 64px 0 64px;
+    background:
+      linear-gradient(180deg, rgba(10,20,48,.55) 0%, rgba(10,20,48,.85) 70%, var(--bg) 100%),
+      url("../img/highway-rush/banner.jpg") center / cover no-repeat;
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; }
+  .hero .logo { width: min(520px, 100%); margin: 0 0 12px -8px; filter: drop-shadow(0 8px 18px rgba(0,0,0,.45)); }
+  .hero h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .by { color: var(--muted); font-weight: 800; margin: 0 0 10px; letter-spacing: 1px; text-transform: uppercase; font-size: 14px; }
+  .by a { color: var(--muted); }
+  .tagline { font-size: 21px; color: var(--text); margin: 0 0 28px; max-width: 36ch; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 14px;
+    font-weight: 800; font-size: 18px; text-decoration: none;
+    border: 3px solid #000; box-shadow: 0 5px 0 #000;
+    transition: transform .1s;
+  }
+  .btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #000; }
+  .btn-play { background: var(--green); color: #0b2300; }
+  .btn-soon { background: #25345f; color: var(--muted); border-color: var(--line); box-shadow: 0 5px 0 #070e24; cursor: default; }
+  .btn-ghost { background: var(--card); color: var(--text); border-color: var(--line); box-shadow: 0 5px 0 #070e24; }
+  .btn small { display: block; font-size: 12px; font-weight: 700; opacity: .8; line-height: 1; }
+  .btn .two { display: flex; flex-direction: column; line-height: 1.15; }
+  .phone {
+    justify-self: center;
+    width: min(280px, 70vw);
+    border-radius: 34px; overflow: hidden;
+    border: 8px solid #05040c; box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 2px var(--line);
+    transform: rotate(3deg);
+  }
+
+  /* Stats strip */
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: -24px; position: relative; }
+  .stat { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 16px 10px; text-align: center; }
+  .stat b { display: block; font-family: "Lilita One", sans-serif; font-weight: 400; font-size: 34px; color: var(--gold); line-height: 1.1; }
+  .stat span { color: var(--muted); font-weight: 700; font-size: 15px; }
+
+  section { padding: 72px 0 0; }
+  section h2 { font-size: clamp(32px, 5vw, 44px); margin: 0 0 8px; text-align: center; }
+  .lead { text-align: center; color: var(--muted); margin: 0 auto 36px; max-width: 60ch; }
+
+  /* Features */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .feature { background: linear-gradient(180deg, var(--card), var(--bg2)); border: 2px solid var(--line); border-radius: 20px; padding: 24px; }
+  .feature .ico { font-size: 34px; line-height: 1; margin-bottom: 10px; }
+  .feature h3 { margin: 0 0 6px; font-size: 24px; color: var(--gold); }
+  .feature p { margin: 0; color: var(--muted); }
+
+  /* Runners */
+  .runners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .rcard { background: var(--card); border: 2px solid var(--line); border-radius: 20px; overflow: hidden; text-align: center; }
+  .rcard img { width: 100%; aspect-ratio: 1; object-fit: contain; background: radial-gradient(circle at 50% 45%, #ff9a4d, #6a1f7a); }
+  .rcard h3 { margin: 10px 0 0; font-size: 22px; }
+  .rcard p { margin: 0 0 14px; color: var(--muted); font-size: 14px; font-weight: 700; }
+
+  /* Screenshots */
+  .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; }
+  .shots img { flex: 0 0 auto; width: 216px; border-radius: 18px; border: 3px solid var(--line); scroll-snap-align: start; }
+  .shots::-webkit-scrollbar { height: 8px; }
+  .shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+
+
+  /* Gameplay video */
+  .video { display: flex; justify-content: center; }
+  .video video { width: min(340px, 86vw); aspect-ratio: 9 / 16; border-radius: 28px; border: 6px solid #05040c;
+    box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 2px var(--line); background: #000; }
+
+  /* Download CTA */
+  .cta { margin-top: 72px; background: linear-gradient(135deg, #1c3c9c, #d8541a); border: 2px solid var(--line); border-radius: 28px; padding: 40px 24px; text-align: center; }
+  .cta h2 { margin-bottom: 8px; }
+  .cta .lead { color: var(--text); }
+  .cta .buttons { justify-content: center; }
+  .cta img { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 16px; border: 3px solid #000; }
+
+  /* FAQ */
+  details { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 18px; margin: 0 auto 12px; max-width: 760px; }
+  summary { cursor: pointer; font-weight: 800; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+
+  footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; text-align: center; }
+    .hero .logo { margin: 0 auto 12px; }
+    .tagline { margin-left: auto; margin-right: auto; }
+    .buttons { justify-content: center; }
+    .phone { transform: none; }
+    .stats { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+    .features { grid-template-columns: 1fr 1fr; }
+    .runners { grid-template-columns: repeat(3, 1fr); }
+    .nav { display: none; }
+    .back { display: inline; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .hero { padding: 40px 0 40px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats .stat:last-child { grid-column: span 2; }
+    .features { grid-template-columns: 1fr; }
+    .runners { grid-template-columns: repeat(2, 1fr); }
+    .shots img { width: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../img/highway-rush/icon.png" alt="">Highway Rush</a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#runners">Cars</a>
+      <a href="#video">Video</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="../">All games</a>
+    </nav>
+    <a class="back" href="../" aria-label="All Pixel Warriors games">← All games</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="by">A game by <a href="../">Pixel Warriors</a></p>
+        <h1>Highway Rush</h1>
+        <img class="logo" src="../img/highway-rush/logo.png" alt="Highway Rush">
+        <p class="tagline">Weave through traffic at full speed, pull off near misses, hit the nitro and unlock faster cars!</p>
+        <div class="buttons">
+          <span class="btn btn-soon" aria-disabled="true">
+            <span class="two"><small>Coming soon on</small>Google Play</span>
+          </span>
+          <a class="btn btn-ghost" href="#screenshots">See the game</a>
+        </div>
+      </div>
+      <img class="phone" src="../img/highway-rush/shot-1-city.jpg" alt="Highway Rush gameplay: racing through city traffic">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>11</b><span>Cars</span></div>
+      <div class="stat"><b>3</b><span>Modes</span></div>
+      <div class="stat"><b>5</b><span>Worlds</span></div>
+      <div class="stat"><b>4</b><span>Upgrades</span></div>
+      <div class="stat"><b>290</b><span>km/h top</span></div>
+    </div>
+
+    <section id="features">
+      <h2>Why you'll love it</h2>
+      <p class="lead">Steer with one thumb, dodge the traffic and go faster and faster. Every race earns coins for a better car.</p>
+      <div class="features">
+        <div class="feature"><div class="ico">🏎️</div><h3>Near misses</h3><p>Pass cars as close as you dare for bonus points. Chain them for a combo up to x10!</p></div>
+        <div class="feature"><div class="ico">🔥</div><h3>Nitro boost</h3><p>Hold NITRO for a huge burst of speed. Near misses and blue nitro cans fill it up again.</p></div>
+        <div class="feature"><div class="ico">↔️</div><h3>Three modes</h3><p>One Way, Two Way with oncoming traffic for double points, and Time Attack with checkpoints.</p></div>
+        <div class="feature"><div class="ico">🔧</div><h3>Garage &amp; upgrades</h3><p>11 cars from a city sedan to the Hyper Jet. Upgrade top speed, acceleration, handling and nitro.</p></div>
+        <div class="feature"><div class="ico">🌆</div><h3>Five worlds</h3><p>Downtown, Palm Coast, Suburbs, Countryside at sunset and Night City with neon lights.</p></div>
+        <div class="feature"><div class="ico">🎁</div><h3>Daily gifts</h3><p>A gift every day, missions with coin rewards, and your choice of touch, arrow or tilt steering.</p></div>
+      </div>
+    </section>
+
+    <section id="runners">
+      <h2>Pick your ride</h2>
+      <p class="lead">Unlock cars with the coins you win. Every car can be upgraded.</p>
+      <div class="runners">
+        <div class="rcard"><img src="../img/highway-rush/car-sedan.png" alt="City Sedan"><h3>City Sedan</h3><p>150 km/h · free</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-taxi.png" alt="Yellow Taxi"><h3>Yellow Taxi</h3><p>162 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-police.png" alt="Interceptor"><h3>Interceptor</h3><p>196 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-sports.png" alt="Street Racer"><h3>Street Racer</h3><p>212 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-thunder.png" alt="Thunder GT"><h3>Thunder GT</h3><p>238 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-formula.png" alt="Formula X"><h3>Formula X</h3><p>262 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-neon.png" alt="Neon Future"><h3>Neon Future</h3><p>270 km/h</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-hyper.png" alt="Hyper Jet"><h3>Hyper Jet</h3><p>290 km/h</p></div>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2>Watch the gameplay</h2>
+      <p class="lead">Real gameplay, straight from the game.</p>
+      <div class="video">
+        <video src="../video/highway-rush.mp4" poster="../img/highway-rush/shot-1-city.jpg" controls playsinline muted loop preload="none"></video>
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <h2>Screenshots</h2>
+      <p class="lead">Swipe left and right to see more.</p>
+      <div class="shots">
+        <img src="../img/highway-rush/shot-1-city.jpg" alt="Racing through Downtown traffic">
+        <img src="../img/highway-rush/shot-2-home.jpg" alt="Home screen and garage">
+        <img src="../img/highway-rush/shot-3-coast.jpg" alt="Thunder GT on the Palm Coast">
+        <img src="../img/highway-rush/shot-4-twoway.jpg" alt="Two Way mode in the Suburbs">
+        <img src="../img/highway-rush/shot-5-nearmiss.jpg" alt="A near miss in the Countryside">
+        <img src="../img/highway-rush/shot-6-night.jpg" alt="Night City">
+        <img src="../img/highway-rush/shot-7-upgrade.jpg" alt="Car upgrades">
+        <img src="../img/highway-rush/shot-8-daily.jpg" alt="Daily gift">
+      </div>
+    </section>
+
+    <div class="cta" id="download">
+      <img src="../img/highway-rush/icon.png" alt="Highway Rush icon">
+      <h2>Ready to race?</h2>
+      <p class="lead">Free to play on Android. Coming soon to Google Play.</p>
+      <div class="buttons">
+        <span class="btn btn-soon" aria-disabled="true">
+          <span class="two"><small>Coming soon on</small>Google Play</span>
+        </span>
+      </div>
+    </div>
+
+    <section id="faq">
+      <h2>Questions</h2>
+      <p class="lead">&nbsp;</p>
+      <details><summary>Is Highway Rush free?</summary><p>Yes. The game is free. Optional video ads give you rewards such as a continue, free coins or double coins, and a short ad may play between races.</p></details>
+      <details><summary>How do I play?</summary><p>Hold the left or right side of the screen to steer (or use arrows or tilt, chosen in Settings). Hold NITRO to boost and BRAKE to slow down. Pass cars closely for near-miss points.</p></details>
+      <details><summary>Does it work offline?</summary><p>Yes, you can play without internet. Ads and ad rewards need a connection.</p></details>
+      <details><summary>Where is my progress saved?</summary><p>On your phone. Uninstalling the game deletes it.</p></details>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 <a href="../">Pixel Warriors</a> · Highway Rush</div>
+    <div>
+      <a href="../privacy.html">Privacy Policy</a> ·
+      <a href="mailto:mille9984@gmail.com">mille9984@gmail.com</a> ·
+      <a href="https://www.instagram.com/pixelwarriers/" target="_blank" rel="noopener">Instagram @pixelwarriers</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
