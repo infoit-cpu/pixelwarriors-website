@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Highway Rush – Endless Traffic Racing Game for Android | Pixel Warriors</title>
-<meta name="description" content="Highway Rush by Pixel Warriors: weave through traffic, pull off near misses, hit the nitro and unlock sports cars. Free endless racing game for Android.">
+<title>Highway Rush – Stunt Car Racing Game for Android | Pixel Warriors</title>
+<meta name="description" content="Highway Rush by Pixel Warriors: race sports cars on sky-high stunt tracks with jumps and curves, beat three rivals to the finish line in 24 levels. Free racing game for Android.">
 <meta property="og:title" content="Highway Rush">
-<meta property="og:description" content="Weave through traffic, near-miss for points and hit the nitro in this free endless racer.">
+<meta property="og:description" content="Race rivals on sky-high stunt tracks: jumps, curves, nitro and 24 levels.">
 <meta property="og:image" content="../img/highway-rush/banner.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="../img/highway-rush/icon.png">
@@ -58,7 +58,7 @@
       linear-gradient(180deg, rgba(10,20,48,.55) 0%, rgba(10,20,48,.85) 70%, var(--bg) 100%),
       url("../img/highway-rush/banner.jpg") center / cover no-repeat;
   }
-  .hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; }
+  .hero .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; align-items: center; }
   .hero .logo { width: min(520px, 100%); margin: 0 0 12px -8px; filter: drop-shadow(0 8px 18px rgba(0,0,0,.45)); }
   .hero h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .by { color: var(--muted); font-weight: 800; margin: 0 0 10px; letter-spacing: 1px; text-transform: uppercase; font-size: 14px; }
@@ -80,8 +80,8 @@
   .btn .two { display: flex; flex-direction: column; line-height: 1.15; }
   .phone {
     justify-self: center;
-    width: min(280px, 70vw);
-    border-radius: 34px; overflow: hidden;
+    width: min(520px, 90vw);
+    border-radius: 26px; overflow: hidden;
     border: 8px solid #05040c; box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 2px var(--line);
     transform: rotate(3deg);
   }
@@ -104,7 +104,7 @@
   .feature p { margin: 0; color: var(--muted); }
 
   /* Runners */
-  .runners { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .runners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .rcard { background: var(--card); border: 2px solid var(--line); border-radius: 20px; overflow: hidden; text-align: center; }
   .rcard img { width: 100%; aspect-ratio: 1; object-fit: contain; background: radial-gradient(circle at 50% 45%, #ff9a4d, #6a1f7a); }
   .rcard h3 { margin: 10px 0 0; font-size: 22px; }
@@ -112,14 +112,14 @@
 
   /* Screenshots */
   .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; }
-  .shots img { flex: 0 0 auto; width: 216px; border-radius: 18px; border: 3px solid var(--line); scroll-snap-align: start; }
+  .shots img { flex: 0 0 auto; width: 420px; border-radius: 18px; border: 3px solid var(--line); scroll-snap-align: start; }
   .shots::-webkit-scrollbar { height: 8px; }
   .shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
 
 
   /* Gameplay video */
   .video { display: flex; justify-content: center; }
-  .video video { width: min(340px, 86vw); aspect-ratio: 9 / 16; border-radius: 28px; border: 6px solid #05040c;
+  .video video { width: min(860px, 94vw); aspect-ratio: 16 / 9; border-radius: 28px; border: 6px solid #05040c;
     box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 2px var(--line); background: #000; }
 
   /* Download CTA */
@@ -157,7 +157,7 @@
     .stats .stat:last-child { grid-column: span 2; }
     .features { grid-template-columns: 1fr; }
     .runners { grid-template-columns: repeat(2, 1fr); }
-    .shots img { width: 180px; }
+    .shots img { width: 300px; }
   }
 </style>
 </head>
@@ -184,7 +184,7 @@
         <p class="by">A game by <a href="../">Pixel Warriors</a></p>
         <h1>Highway Rush</h1>
         <img class="logo" src="../img/highway-rush/logo.png" alt="Highway Rush">
-        <p class="tagline">Weave through traffic at full speed, pull off near misses, hit the nitro and unlock faster cars!</p>
+        <p class="tagline">Race sports cars on sky-high stunt tracks. Jump the gaps, hit the nitro and beat three rivals to the finish line!</p>
         <div class="buttons">
           <span class="btn btn-soon" aria-disabled="true">
             <span class="two"><small>Coming soon on</small>Google Play</span>
@@ -192,29 +192,29 @@
           <a class="btn btn-ghost" href="#screenshots">See the game</a>
         </div>
       </div>
-      <img class="phone" src="../img/highway-rush/shot-1-city.jpg" alt="Highway Rush gameplay: racing through city traffic">
+      <img class="phone" src="../img/highway-rush/shot-1-city.jpg" alt="Highway Rush gameplay: racing rivals on a sky track">
     </div>
   </div>
 
   <div class="wrap">
     <div class="stats">
-      <div class="stat"><b>5</b><span>Cars</span></div>
-      <div class="stat"><b>3</b><span>Modes</span></div>
+      <div class="stat"><b>24</b><span>Levels</span></div>
       <div class="stat"><b>5</b><span>Worlds</span></div>
-      <div class="stat"><b>4</b><span>Upgrades</span></div>
+      <div class="stat"><b>4</b><span>Sports cars</span></div>
+      <div class="stat"><b>3</b><span>Rivals</span></div>
       <div class="stat"><b>270</b><span>km/h top</span></div>
     </div>
 
     <section id="features">
       <h2>Why you'll love it</h2>
-      <p class="lead">Steer with one thumb, dodge the traffic and go faster and faster. Every race earns coins for a better car.</p>
+      <p class="lead">Gas, brake and steer like a real car. Every level is a new track in the sky, and every win earns coins for a faster car.</p>
       <div class="features">
-        <div class="feature"><div class="ico">🏎️</div><h3>Near misses</h3><p>Pass cars as close as you dare for bonus points. Chain them for a combo up to x10!</p></div>
-        <div class="feature"><div class="ico">🔥</div><h3>Nitro boost</h3><p>Hold NITRO for a huge burst of speed. Near misses and blue nitro cans fill it up again.</p></div>
-        <div class="feature"><div class="ico">↔️</div><h3>Three modes</h3><p>One Way, Two Way with oncoming traffic for double points, and Time Attack with checkpoints.</p></div>
-        <div class="feature"><div class="ico">🔧</div><h3>Garage &amp; upgrades</h3><p>From the Thunder GT and City Sedan to the 270 km/h Red Fury. Upgrade top speed, acceleration, handling and nitro.</p></div>
-        <div class="feature"><div class="ico">🌆</div><h3>Five worlds</h3><p>Downtown, Palm Coast, Suburbs, Countryside at sunset and Night City with neon lights.</p></div>
-        <div class="feature"><div class="ico">🎁</div><h3>Daily gifts</h3><p>A gift every day, missions with coin rewards, and your choice of touch, arrow or tilt steering.</p></div>
+        <div class="feature"><div class="ico">🏁</div><h3>24 levels</h3><p>Each level is a new stunt track with a finish line. Finish in the top 3 to earn stars and unlock the next one.</p></div>
+        <div class="feature"><div class="ico">🏎️</div><h3>Race 3 rivals</h3><p>Blaze, Viper and Nova race you every time. Take the lead on the curves and hold it to the flag.</p></div>
+        <div class="feature"><div class="ico">🚀</div><h3>Jumps &amp; nitro</h3><p>Hit the ramps at speed to clear the gaps, and hold NITRO for a big burst on the straights.</p></div>
+        <div class="feature"><div class="ico">🏔️</div><h3>Five worlds</h3><p>Sky Bridge, Mountain Pass, Snow Peak, Desert Sunset and Night Run, with real skies all around.</p></div>
+        <div class="feature"><div class="ico">🔧</div><h3>Garage &amp; upgrades</h3><p>From the Thunder GT to the 270 km/h Red Fury. Upgrade top speed, acceleration, handling and nitro.</p></div>
+        <div class="feature"><div class="ico">🎁</div><h3>Daily gifts</h3><p>A gift every day, missions with coin rewards, and arrow or tilt steering with an optional auto gas.</p></div>
       </div>
     </section>
 
@@ -222,8 +222,7 @@
       <h2>Pick your ride</h2>
       <p class="lead">Unlock cars with the coins you win. Every car can be upgraded.</p>
       <div class="runners">
-        <div class="rcard"><img src="../img/highway-rush/car-thunder.png" alt="Thunder GT"><h3>Thunder GT</h3><p>160 km/h · free</p></div>
-        <div class="rcard"><img src="../img/highway-rush/car-sedan.png" alt="City Sedan"><h3>City Sedan</h3><p>150 km/h · free</p></div>
+        <div class="rcard"><img src="../img/highway-rush/car-thunder.png" alt="Thunder GT"><h3>Thunder GT</h3><p>170 km/h · free</p></div>
         <div class="rcard"><img src="../img/highway-rush/car-blue.png" alt="Blue Bullet"><h3>Blue Bullet</h3><p>190 km/h</p></div>
         <div class="rcard"><img src="../img/highway-rush/car-gold.png" alt="Golden Arrow"><h3>Golden Arrow</h3><p>230 km/h</p></div>
         <div class="rcard"><img src="../img/highway-rush/car-red.png" alt="Red Fury"><h3>Red Fury</h3><p>270 km/h</p></div>
@@ -240,16 +239,16 @@
 
     <section id="screenshots">
       <h2>Screenshots</h2>
-      <p class="lead">Swipe left and right to see more.</p>
+      <p class="lead">Scroll sideways to see more.</p>
       <div class="shots">
-        <img src="../img/highway-rush/shot-1-city.jpg" alt="Racing through Downtown traffic">
-        <img src="../img/highway-rush/shot-2-home.jpg" alt="Home screen and garage">
-        <img src="../img/highway-rush/shot-3-coast.jpg" alt="Golden Arrow on the Palm Coast">
-        <img src="../img/highway-rush/shot-4-twoway.jpg" alt="Two Way mode in the Suburbs">
-        <img src="../img/highway-rush/shot-5-nearmiss.jpg" alt="A near miss in the Countryside">
-        <img src="../img/highway-rush/shot-6-night.jpg" alt="Night City">
-        <img src="../img/highway-rush/shot-7-upgrade.jpg" alt="Car upgrades">
-        <img src="../img/highway-rush/shot-8-daily.jpg" alt="Daily gift">
+        <img src="../img/highway-rush/shot-1-sky.jpg" alt="Racing rivals on the Sky Bridge">
+        <img src="../img/highway-rush/shot-2-home.jpg" alt="Garage and home screen">
+        <img src="../img/highway-rush/shot-3-levels.jpg" alt="Level select with stars">
+        <img src="../img/highway-rush/shot-4-mountain.jpg" alt="Mountain Pass">
+        <img src="../img/highway-rush/shot-5-snow.jpg" alt="Snow Peak">
+        <img src="../img/highway-rush/shot-6-sunset.jpg" alt="Desert Sunset">
+        <img src="../img/highway-rush/shot-7-night.jpg" alt="Night Run">
+        <img src="../img/highway-rush/shot-8-upgrade.jpg" alt="Car upgrades">
       </div>
     </section>
 
@@ -267,8 +266,8 @@
     <section id="faq">
       <h2>Questions</h2>
       <p class="lead">&nbsp;</p>
-      <details><summary>Is Highway Rush free?</summary><p>Yes. The game is free. Optional video ads give you rewards such as a continue, free coins or double coins, and a short ad may play between races.</p></details>
-      <details><summary>How do I play?</summary><p>Hold the left or right side of the screen to steer (or use arrows or tilt, chosen in Settings). Hold NITRO to boost and BRAKE to slow down. Pass cars closely for near-miss points.</p></details>
+      <details><summary>Is Highway Rush free?</summary><p>Yes. The game is free. Optional video ads give you rewards such as free coins or double coins, and a short ad may play between races.</p></details>
+      <details><summary>How do I play?</summary><p>Hold GAS to drive and BRAKE to slow down or reverse, steer with the arrows (or tilt your phone, chosen in Settings) and hold NITRO for a boost. Fall off the track and you are put back at the last checkpoint.</p></details>
       <details><summary>Does it work offline?</summary><p>Yes, you can play without internet. Ads and ad rewards need a connection.</p></details>
       <details><summary>Where is my progress saved?</summary><p>On your phone. Uninstalling the game deletes it.</p></details>
     </section>
