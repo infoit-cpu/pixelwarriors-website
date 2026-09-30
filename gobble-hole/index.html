@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gobble Hole – City-Swallowing Hole Game for Android | Pixel Warriors</title>
+<meta name="description" content="Gobble Hole by Pixel Warriors: be a hole in the city, swallow people, cars and buildings, grow bigger and gobble the other holes. Classic, Royale and Solo modes. Free game for Android.">
+<meta property="og:title" content="Gobble Hole">
+<meta property="og:description" content="Be a hole. Swallow the city. Gobble the other holes.">
+<meta property="og:image" content="../img/gobble-hole/banner.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="../img/gobble-hole/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1d1a2e;
+    --cream: #fff7e8;
+    --paper: #fffdf8;
+    --pink: #ff5ca8;
+    --mint: #3ddc97;
+    --sun: #ffd23f;
+    --sky: #4cc9f0;
+    --violet: #7b61ff;
+    --muted: #6b6580;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Fredoka", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  a { color: var(--ink); }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3, .brand, .sticker, .btn, .stat b { font-family: "Bungee", "Fredoka", sans-serif; font-weight: 400; }
+
+  .box { background: var(--paper); border: 4px solid var(--ink); border-radius: 22px; box-shadow: 0 7px 0 var(--ink); }
+
+  /* Top bar */
+  .top { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 4px solid var(--ink); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 20px; color: var(--ink); text-decoration: none; }
+  .brand img { width: 40px; height: 40px; border-radius: 12px; border: 3px solid var(--ink); }
+  .nav a { text-decoration: none; margin-left: 20px; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .back { display: none; text-decoration: none; font-weight: 600; font-size: 16px; }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; background: radial-gradient(circle at 80% 30%, #ffe3f0 0, transparent 45%), radial-gradient(circle at 10% 90%, #d9f7ea 0, transparent 40%); }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; }
+  .hero h1 { margin: 0 0 18px; line-height: 1; }
+  .sticker { display: inline-block; padding: 6px 22px 10px; border: 5px solid var(--ink); border-radius: 22px; box-shadow: 0 8px 0 var(--ink); font-size: clamp(48px, 8vw, 84px); }
+  .s1 { background: var(--pink); color: var(--cream); transform: rotate(-3deg); }
+  .s2 { background: var(--sun); color: var(--ink); transform: rotate(2deg); margin: 10px 0 0 40px; }
+  .by { color: var(--muted); font-weight: 600; margin: 0 0 14px; letter-spacing: 1px; text-transform: uppercase; font-size: 14px; }
+  .tagline { font-size: 22px; margin: 22px 0 26px; max-width: 34ch; font-weight: 500; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 24px 14px; border-radius: 18px; font-size: 18px; text-decoration: none; color: var(--ink);
+    border: 4px solid var(--ink); box-shadow: 0 6px 0 var(--ink); transition: transform .1s;
+  }
+  .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--ink); }
+  .btn-soon { background: var(--paper); cursor: default; }
+  .btn-go { background: var(--mint); }
+  .btn small { display: block; font-family: "Fredoka", sans-serif; font-size: 13px; font-weight: 600; line-height: 1; }
+  .btn .two { display: flex; flex-direction: column; line-height: 1.15; }
+  .phone { justify-self: center; width: min(360px, 80vw); border-radius: 30px; overflow: hidden; border: 6px solid var(--ink); box-shadow: 12px 12px 0 var(--ink); transform: rotate(2deg); }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 10px; }
+  .stat { text-align: center; padding: 14px 8px; }
+  .stat b { display: block; font-size: 34px; line-height: 1.1; }
+  .stat span { font-weight: 600; color: var(--muted); }
+  .stat:nth-child(1) { background: var(--sun); }
+  .stat:nth-child(2) { background: var(--sky); }
+  .stat:nth-child(3) { background: var(--mint); }
+  .stat:nth-child(4) { background: #ffc2de; }
+  .stat:nth-child(n) span { color: var(--ink); }
+
+  section { padding: 70px 0 0; }
+  section h2 { font-size: clamp(30px, 5vw, 42px); margin: 0 0 8px; text-align: center; }
+  .lead { text-align: center; color: var(--muted); margin: 0 auto 34px; max-width: 58ch; font-weight: 500; }
+
+  /* Modes */
+  .modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .mode { padding: 22px; }
+  .mode h3 { display: inline-block; margin: 0 0 10px; font-size: 24px; padding: 2px 14px 6px; border: 4px solid var(--ink); border-radius: 14px; }
+  .mode p { margin: 0; }
+  .m1 h3 { background: var(--pink); color: var(--cream); }
+  .m2 h3 { background: var(--violet); color: var(--cream); }
+  .m3 h3 { background: var(--mint); }
+
+  /* Features */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .feature { padding: 22px; }
+  .feature .ico { font-size: 36px; line-height: 1; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 6px; font-size: 20px; }
+  .feature p { margin: 0; color: var(--muted); font-weight: 500; }
+
+  /* Screenshots */
+  .shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 6px 22px; }
+  .shots img { flex: 0 0 auto; width: 280px; border-radius: 22px; border: 4px solid var(--ink); box-shadow: 0 7px 0 var(--ink); scroll-snap-align: start; }
+
+  /* CTA */
+  .cta { margin-top: 70px; padding: 40px 24px; text-align: center; background: var(--sun); }
+  .cta img { width: 96px; height: 96px; border-radius: 24px; margin: 0 auto 16px; border: 4px solid var(--ink); }
+  .cta .lead { color: var(--ink); }
+  .cta .buttons { justify-content: center; }
+
+  details { padding: 14px 18px; margin: 0 auto 14px; max-width: 760px; }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { color: var(--muted); margin: 10px 0 0; font-weight: 500; }
+
+  footer { margin-top: 80px; border-top: 4px solid var(--ink); padding: 28px 0 40px; font-size: 15px; font-weight: 500; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; text-align: center; }
+    .s2 { margin-left: 0; }
+    .tagline { margin-left: auto; margin-right: auto; }
+    .buttons { justify-content: center; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .modes, .features { grid-template-columns: 1fr; }
+    .nav { display: none; }
+    .back { display: inline; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .shots img { width: 230px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../img/gobble-hole/icon.png" alt="">Gobble Hole</a>
+    <nav class="nav">
+      <a href="#modes">Modes</a>
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="../">All games</a>
+    </nav>
+    <a class="back" href="../" aria-label="All Pixel Warriors games">← All games</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="by">A game by <a href="../">Pixel Warriors</a></p>
+        <h1><span class="sticker s1">GOBBLE</span><br><span class="sticker s2">HOLE</span></h1>
+        <p class="tagline">You are a hole in the city. Swallow people, cars and whole buildings, grow huge and gobble the other holes!</p>
+        <div class="buttons">
+          <span class="btn btn-soon" aria-disabled="true"><span class="two"><small>Coming soon on</small>GOOGLE PLAY</span></span>
+          <a class="btn btn-go" href="#screenshots">SEE THE GAME</a>
+        </div>
+      </div>
+      <img class="phone" src="../img/gobble-hole/shot-1-play.jpg" alt="Gobble Hole gameplay: a hole swallowing a car on a city street">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat box"><b>3</b><span>Game modes</span></div>
+      <div class="stat box"><b>3</b><span>Cities</span></div>
+      <div class="stat box"><b>8</b><span>Holes per match</span></div>
+      <div class="stat box"><b>12</b><span>Hole skins</span></div>
+    </div>
+
+    <section id="modes">
+      <h2>Three ways to play</h2>
+      <p class="lead">Every match lasts two minutes and every city is built fresh, so no two games are the same.</p>
+      <div class="modes">
+        <div class="mode box m1"><h3>CLASSIC</h3><p>You and seven other holes. Get eaten and you come back smaller. The biggest hole when time runs out wins the crown.</p></div>
+        <div class="mode box m2"><h3>ROYALE</h3><p>No second chances: an eaten hole is out. Grow fast, stay away from bigger holes and be the last one standing.</p></div>
+        <div class="mode box m3"><h3>SOLO</h3><p>Just you and the city. Swallow as much of it as you can in two minutes and beat your best percentage.</p></div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Why you'll love it</h2>
+      <p class="lead">Drag anywhere to move. Small things first, then cars, houses and towers.</p>
+      <div class="features">
+        <div class="feature box"><div class="ico">🕳️</div><h3>Grow and grow</h3><p>Everything smaller than you falls in: people, cones, benches, trees, cars, houses and skyscrapers.</p></div>
+        <div class="feature box"><div class="ico">👑</div><h3>Gobble the others</h3><p>Once you are bigger, swallow the other holes too. The leader wears the crown on the live leaderboard.</p></div>
+        <div class="feature box"><div class="ico">🏙️</div><h3>Three cities</h3><p>Green Suburbs, busy Downtown and palm-lined Sunset Bay, with cars on the roads and people who run away.</p></div>
+        <div class="feature box"><div class="ico">🎨</div><h3>Hole skins</h3><p>Twelve rims to collect: candy cane, bee, ladybug, galaxy, rainbow and more. Put your own name on your hole.</p></div>
+        <div class="feature box"><div class="ico">⭐</div><h3>Level up</h3><p>Earn coins and XP every match, level up and watch a video for double coins.</p></div>
+        <div class="feature box"><div class="ico">📶</div><h3>Plays offline</h3><p>No internet needed to play. Quick two-minute matches, perfect for a short break.</p></div>
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <h2>Screenshots</h2>
+      <p class="lead">Scroll sideways to see more.</p>
+      <div class="shots">
+        <img src="../img/gobble-hole/shot-1-play.jpg" alt="Swallowing a car in the suburbs">
+        <img src="../img/gobble-hole/shot-2-home.jpg" alt="Home screen with modes and cities">
+        <img src="../img/gobble-hole/shot-3-big.jpg" alt="A big hole in Green Suburbs">
+        <img src="../img/gobble-hole/shot-4-battle.jpg" alt="Royale mode in Downtown">
+        <img src="../img/gobble-hole/shot-5-sunset.jpg" alt="Solo mode in Sunset Bay">
+        <img src="../img/gobble-hole/shot-6-skins.jpg" alt="Hole skins">
+        <img src="../img/gobble-hole/shot-7-results.jpg" alt="Match results">
+      </div>
+    </section>
+
+    <div class="cta box" id="download">
+      <img src="../img/gobble-hole/icon.png" alt="Gobble Hole icon">
+      <h2>Ready to gobble?</h2>
+      <p class="lead">Free to play on Android. Coming soon to Google Play.</p>
+      <div class="buttons">
+        <span class="btn btn-soon" aria-disabled="true"><span class="two"><small>Coming soon on</small>GOOGLE PLAY</span></span>
+      </div>
+    </div>
+
+    <section id="faq">
+      <h2>Questions</h2>
+      <p class="lead">&nbsp;</p>
+      <details class="box"><summary>Is Gobble Hole free?</summary><p>Yes. The game is free. Optional video ads give you double coins, and a short ad may play between matches.</p></details>
+      <details class="box"><summary>How do I play?</summary><p>Put your finger anywhere on the screen and drag towards where you want to go. Things smaller than your hole fall in and make it bigger.</p></details>
+      <details class="box"><summary>Does it work offline?</summary><p>Yes. The other holes are computer players, so you can play without internet. Ads need a connection.</p></details>
+      <details class="box"><summary>Where is my progress saved?</summary><p>On your phone. Uninstalling the game deletes it.</p></details>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 <a href="../">Pixel Warriors</a> · Gobble Hole</div>
+    <div>
+      <a href="../privacy.html">Privacy Policy</a> ·
+      <a href="mailto:mille9984@gmail.com">mille9984@gmail.com</a> ·
+      <a href="https://www.instagram.com/pixelwarriers/" target="_blank" rel="noopener">Instagram @pixelwarriers</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
